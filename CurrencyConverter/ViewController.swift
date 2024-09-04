@@ -43,11 +43,19 @@ class ViewController: UIViewController {
             } else {
                 // 2.
                 if data != nil {
-                    
+                    do{
+                        let jsonRepose = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers)
+                        
+                        DispatchQueue.main.async {
+                            print(jsonRepose)
+                        }
+                    } catch {
+                        print("Error")
+                    }
                 }
             }
         }
-        
+        task.resume()
     }
     
 }
