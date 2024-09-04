@@ -45,7 +45,7 @@ class ViewController: UIViewController {
                 if data != nil {
                     do{
                         let jsonRepose = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! Dictionary<String, Any>
-                        
+                        // 3) Parsing & JSON Serialization
                         DispatchQueue.main.async {
                             if let rates = jsonRepose["rates"] as? [String : Any] {
                                 
@@ -75,7 +75,7 @@ class ViewController: UIViewController {
                 }
             }
         }
-        task.resume()
+        task.resume() //inicio de la tarea para el JSON
     }
     
 }
